@@ -14,7 +14,14 @@ export default function ItemListContainer(){
    const {idCategory} = useParams();
 
    useEffect(() => {
-      customFetch(dataProducts.filter(item => item.idProduct === parseInt(idCategory)))
+      customFetch(dataProducts.filter(item => {
+          if(idCategory === undefined){ //le indico que si la categoría es indefinida (en el caso de home con el path="/") retorne el item
+              return item;
+          }else{//en cambio, si tiene una categoría, llamo al idProduct y lo comparo con el idCategory
+              return item.idProduct === parseInt(idCategory)
+          }
+          
+      }))
         .then(res => setProducts(res))
         .catch(err => alert("Error" + err))
     }, [products])//pongo products aca ya que sin eso no se volvería a renderizar la página cada vez que cambio de parametros para mostrar otra clase de productos.

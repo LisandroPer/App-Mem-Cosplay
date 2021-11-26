@@ -14,11 +14,10 @@ export default function ItemListContainer(){
    const {idCategory} = useParams();
 
    useEffect(() => {
-    customFetch(dataProducts.filter(item => item.idProduct == parseInt(idCategory)))
-    .then(res => setProducts(res))
-    .catch(err => alert("Error" + err))
-
-   }, [])
+      customFetch(dataProducts.filter(item => item.idProduct === parseInt(idCategory)))
+        .then(res => setProducts(res))
+        .catch(err => alert("Error" + err))
+    }, [products])//pongo products aca ya que sin eso no se volvería a renderizar la página cada vez que cambio de parametros para mostrar otra clase de productos.
 
     return(
         <ItemList products={products} />

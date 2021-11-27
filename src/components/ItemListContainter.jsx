@@ -27,6 +27,8 @@ export default function ItemListContainer(){
     }, [products])//pongo products aca ya que sin eso no se volvería a renderizar la página cada vez que cambio de parametros para mostrar otra clase de productos.
 
     return(
+        <div class="card-group justify-content-center">  
         <ItemList products={products} />
+        </div>
     );
 }

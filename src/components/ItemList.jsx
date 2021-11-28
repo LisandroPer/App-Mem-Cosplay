@@ -8,7 +8,7 @@ export default function ItemList({products}){
           <Item 
            title = {product.title}
            imgProduct = {product.imgProduct}
-           key = {product.id}
+           id = {product.id}
           />
 
         ))

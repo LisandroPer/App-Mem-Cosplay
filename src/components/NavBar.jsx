@@ -14,7 +14,7 @@ export default function NavBar(){
                         <Link to="/" className="nav-link active" aria-current="page">Home</Link>
                         <Link to="/category/1" className="nav-link active" aria-current="page">Disfraces</Link>
                         <Link to="/category/2" className="nav-link active" aria-current="page">Cosplays</Link>
-                        <a className="nav-link" href="#">Pricing</a>
+                        <Link to="/category/3" className="nav-link active" aria-current="page">Accesorios</Link>
                         <a className="nav-link disabled">Disabled</a>
                     </div>
                     </div>

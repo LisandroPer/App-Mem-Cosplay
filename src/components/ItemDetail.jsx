@@ -31,7 +31,7 @@ export default function ItemDetail({producto}){
                 </div>
                 {
                     Count === 0
-                    ?<ItemCount max={producto.stock} initiall = {Count}  onClick = {onAdd} />
+                    ?<ItemCount max={producto.stock} initiall = {Count}  onAdd = {onAdd} />
                     :<Link to="/cart" button type="button" className="btn btn-success">Ir al carrito</Link>
                 }
             </div>

@@ -5,7 +5,7 @@ function ItemCount(props){
 
    
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
     const increment = () => {
         setCount(count + 1);
@@ -19,7 +19,7 @@ function ItemCount(props){
         setCount(count - 1);
         if(count <= 1){
            console.log("Errore, no puede haber una cantidad negativa de stock");
-           setCount(0);
+           setCount(1);
         }
     }
 

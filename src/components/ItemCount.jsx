@@ -34,7 +34,7 @@ function ItemCount(props){
                   <button onClick={decrement} className="btn btn-secondary col-4">-</button>
                 </div>
                 <div className="row justify-content-center ">
-                  <h2 className="col-4 colorContador">{count}</h2>
+                  <h2 className="col-4 colorContador">Agregó {count} items</h2>
                   
                   </div>
                 </div>

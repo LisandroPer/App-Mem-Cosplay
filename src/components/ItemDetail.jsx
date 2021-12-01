@@ -36,12 +36,17 @@ export default function ItemDetail({producto}){
                 </div>
                 </div>
                 <div className= "row justify-content-center align-items-center">
+                   { !show &&
                    <ItemCount max={producto.stock}    />
+                   }
                    { !show &&
                    <button onClick = {handler}  className="btn btn-success col-4">Agregar al carrito</button>
                    }
                    { show &&
-                    <Link to="/cart" button type="button" className="btn btn-danger col-4">Ir al carrito</Link>
+                    <Link to="/cart" button type="button" className="btn btn-danger col-3">Ir al carrito</Link>
+                   }
+                   { show &&
+                     <button onClick = {handler} type="button" className="btn btn-warning col-3">Volver atrás</button>
                    }
                 </div>
             </div>

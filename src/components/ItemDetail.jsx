@@ -6,12 +6,18 @@ import { Link } from "react-router-dom";
 
 export default function ItemDetail({producto}){
 
-    const [Count, setCount] = useState (0);
+    /*const [count, setCount] = useState (0);
     
     const onAdd = (qty) => {
         alert("Acabas de seleccionar" + qty);
-        setCount(qty);
+        setCount(qty + 1);
+    }*/
+
+    const [show, setShow] = useState(false);
+    const handler = () => {
+        setShow((show) => !show);
     }
+
 
     return(
        <>
@@ -29,11 +35,15 @@ export default function ItemDetail({producto}){
                     <p className="card-text">Cantidad en stock: {producto.stock}</p>
                 </div>
                 </div>
-                {
-                    Count === 0
-                    ?<ItemCount max={producto.stock} initiall = {Count}  onAdd = {onAdd} />
-                    :<Link to="/cart" button type="button" className="btn btn-success">Ir al carrito</Link>
-                }
+                <div className= "row justify-content-center align-items-center">
+                   <ItemCount max={producto.stock}    />
+                   { !show &&
+                   <button onClick = {handler}  className="btn btn-success col-4">Agregar al carrito</button>
+                   }
+                   { show &&
+                    <Link to="/cart" button type="button" className="btn btn-danger col-4">Ir al carrito</Link>
+                   }
+                </div>
             </div>
         </div>
     

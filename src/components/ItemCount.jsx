@@ -33,9 +33,9 @@ function ItemCount(props){
                   <button onClick={increment} className="btn btn-primary col-4">+</button>
                   <button onClick={decrement} className="btn btn-secondary col-4">-</button>
                 </div>
-                <div className="row justify-content-felx-start align-items-center">
+                <div className="row justify-content-center ">
                   <h2 className="col-4 colorContador">{count}</h2>
-                  <button className="btn btn-success col-4">Agregar al carrito</button>
+                  
                   </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import CardWidget from "./CardWidget";
 export default function NavBar(){
     return(
         <>
@@ -15,7 +15,7 @@ export default function NavBar(){
                         <Link to="/category/1" className="nav-link active" aria-current="page">Disfraces</Link>
                         <Link to="/category/2" className="nav-link active" aria-current="page">Cosplays</Link>
                         <Link to="/category/3" className="nav-link active" aria-current="page">Accesorios</Link>
-                        <a className="nav-link disabled">Disabled</a>
+                        <Link to="/cart" className="nav-link active" aria-current="page"><CardWidget /></Link>
                     </div>
                     </div>
                 </div>

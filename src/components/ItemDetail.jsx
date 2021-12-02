@@ -6,17 +6,14 @@ import { Link } from "react-router-dom";
 
 export default function ItemDetail({producto}){
 
-    /*const [count, setCount] = useState (0);
+    const [itemCount, setItemCount] = useState (0);
     
     const onAdd = (qty) => {
-        alert("Acabas de seleccionar" + qty);
-        setCount(qty + 1);
-    }*/
-
-    const [show, setShow] = useState(false);
-    const handler = () => {
-        setShow((show) => !show);
+        alert("Acabas de seleccionar " + qty + " items de" + producto.title);
+        setItemCount(qty);
     }
+
+   
 
 
     return(
@@ -36,18 +33,12 @@ export default function ItemDetail({producto}){
                 </div>
                 </div>
                 <div className= "row justify-content-center align-items-center">
-                   { !show &&
-                   <ItemCount max={producto.stock}    />
+                   { itemCount === 0
+                     ?<ItemCount stock={producto.stock}  initial={itemCount} onAdd={onAdd}  />
+                  
+                    : <Link to="/cart" button type="button" className="btn btn-danger col-3">Ir al carrito</Link>
                    }
-                   { !show &&
-                   <button onClick = {handler}  className="btn btn-success col-4">Agregar al carrito</button>
-                   }
-                   { show &&
-                    <Link to="/cart" button type="button" className="btn btn-danger col-3">Ir al carrito</Link>
-                   }
-                   { show &&
-                     <button onClick = {handler} type="button" className="btn btn-warning col-3">Volver atrás</button>
-                   }
+                  
                 </div>
             </div>
         </div>

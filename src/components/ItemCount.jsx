@@ -1,48 +1,39 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-function ItemCount(props){
-
+function ItemCount({stock = 0, initial = 1, onAdd}){
+   const [count, setCount] = useState(0);
    
+   useEffect(() => {
+      setCount(initial);
+   }, []);
 
-    const [count, setCount] = useState(1);
+   const increment = () => {
+       if(count < stock) {
+           setCount(count + 1);
+       }
+   }
+   const decrement = () => {
+       if(count > initial +1){
+           setCount(count -1)
+       }
+   }
 
-    const increment = () => {
-        setCount(count + 1);
-        if(count >= props.max){
-           console.log("No tenemos stock suficiente en este momento.");
-           setCount(props.max);
+   return(
+       <>
+       <div className = "row justify-content-center align-items">
+        <button type="button" className="btn btn-primary col-3" onClick={increment}>+</button>
+        <button type="button" className="btn btn-primary col-3" onClick={decrement}>-</button>
+        <h3>{count}</h3>
+        {
+            stock && count
+            ?<button type="button" className="btn btn-success col-3" onClick={() => onAdd(count)}>Agregar al carrito</button>
+            :<button type="button" className="btn btn-light col-3" disabled>Agregar al carrito</button>
         }
-    }
+        </div>
+       </>
+   );
 
-    const decrement = () =>{
-        setCount(count - 1);
-        if(count <= 1){
-           console.log("Errore, no puede haber una cantidad negativa de stock");
-           setCount(1);
-        }
-    }
-
-    
-        return(
-            <>
-            <div className="conteiner-fluid">
-                <div className="row contador-estilo justify-content-center align-items-center">
-                <p className="card-text">Seleccione la cantidad de productos que desa agregar</p>
-                 <div className="row  justify-content-center align-items-center">
-                  <button onClick={increment} className="btn btn-primary col-4">+</button>
-                  <button onClick={decrement} className="btn btn-secondary col-4">-</button>
-                </div>
-                <div className="row justify-content-center ">
-                  <h2 className="col-4 colorContador">Agregó {count} items</h2>
-                  
-                  </div>
-                </div>
-            </div>
-            </>
-        );
 }
-    
-
 
 export default ItemCount

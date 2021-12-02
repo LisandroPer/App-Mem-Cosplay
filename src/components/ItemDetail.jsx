@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import React from "react";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
+import { CartContext }  from "./CartContext";
 //import ItemCount from "./ItemCount";
 
 export default function ItemDetail({producto}){
 
     const [itemCount, setItemCount] = useState (0);
-    
+    const test = useContext(CartContext) //importo el contexto que deseo usar
+    console.log("itemdetalle", test)
     const onAdd = (qty) => {
         alert("Acabas de seleccionar " + qty + " items de" + producto.title);
         setItemCount(qty);
+        test.addToCart(producto, qty);//importo la función agregar al carrito y le paso los productos y la cantidad.
+        console.log("Qty" + qty);
+        console.log("Producto:" + producto)
     }
 
    

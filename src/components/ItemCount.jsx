@@ -1,9 +1,11 @@
 
 import { useEffect, useState } from "react"
-
-function ItemCount({stock = 0, initial = 1, onAdd}){
+import { CartContext } from "./CartContext"
+import { useContext } from "react"
+function ItemCount({stock = 0, initial = 1, onAdd}){ //LE PASÉ LA FUNCIÓN POR PARÁMETROS. DESDE EL ITEMDETAIL
    const [count, setCount] = useState(0);
-   
+   const test = useContext(CartContext)
+
    useEffect(() => {
       setCount(initial);
    }, []);
@@ -27,7 +29,7 @@ function ItemCount({stock = 0, initial = 1, onAdd}){
         <h3>{count}</h3>
         {
             stock && count
-            ?<button type="button" className="btn btn-success col-3" onClick={() => onAdd(count)}>Agregar al carrito</button>
+            ?<button type="button" className="btn btn-success col-3" onClick={() => onAdd(count)}>Agregar al carrito</button>//ACA ESTA LA FUNCIÓN QUE SE PASÓ POR PARÁMETROS.
             :<button type="button" className="btn btn-light col-3" disabled>Agregar al carrito</button>
         }
         </div>

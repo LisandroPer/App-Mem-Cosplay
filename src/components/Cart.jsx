@@ -11,6 +11,11 @@ export default function Cart(){
 
     return(
         <>
+        {test.cartList.length > 0 &&
+        <div className="row justify-content-center align-items-center">
+           <button onClick={test.removeList} type="button" className="btn btn-danger col-8">Remover todos los productos del carrito.</button>
+        </div>//RECORDAR PONER TEST.(NOMBRE DEL ARRAY O FUNCIÓN) PARA LLAMAR LOS ELEMENTOS DEL CONTEXTO GLOBAL.
+        }
         {//llamo al array carList (del componente CartContext) a través del método useContext
         test.cartList.length > 0 ?
           test.cartList.map(item => 
@@ -21,12 +26,13 @@ export default function Cart(){
               <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p className="card-text">{item.precioProducto}</p>
               <p>{item.cantidadProducto}</p>
-            </div>
+              <button onClick={() => test.deleteItem(item.idProducto)} type="button" className="btn btn-danger col-4">Remover producto del carrito</button>
+            </div> 
           </div>
             )
          :<div class="card bg-dark text-white">
            <img src={imagenCarritoVacio} class="card-img" style={{maxHeight: "40rem"}, {maxWidth: "200rem"}} alt="Imagen de carrito vacío" />
-           <div class="card-img-overlay">
+           <div class="card-img-overlay justify-content-center align-items-center">
               <h1 class="card-title"><b>Todavía no tienes productos en tu carrito.</b></h1> 
            </div>
            </div>

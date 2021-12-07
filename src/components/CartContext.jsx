@@ -23,6 +23,7 @@ const CartContextProvider = ({children}) => {
           ]);
         }else{//si el producto sí se encontraba en la CartList, entonces le sumo la cantidad seleccionada.
             encontrar.cantidadProducto += qty; //le sumo la cantidad nueva que agregué a la cantidad que ya estaba en el carrito.
+            encontrar.precioProductos += producto.price * qty; //le sumo dinero en base a la nueva cantidad de elementos que se agregaron.
         }
     }
     const removeList = () => { //función para remover todos los productos del carrito.

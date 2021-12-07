@@ -17,7 +17,8 @@ const CartContextProvider = ({children}) => {
               imgProducto: producto.imgProduct,
               titleProducto: producto.title,
               precioProducto: producto.price,
-              cantidadProducto: qty
+              cantidadProducto: qty,
+              precioProductos: producto.price * qty
               }
           ]);
         }else{//si el producto sí se encontraba en la CartList, entonces le sumo la cantidad seleccionada.

@@ -24,8 +24,9 @@ export default function Cart(){
             <div className="card-body">
               <h5 className="card-title">{item.titleProducto}</h5>
               <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p className="card-text">{item.precioProducto}</p>
-              <p>{item.cantidadProducto}</p>
+              <p className="card-text">Precio unitario: {item.precioProducto}</p>
+              <p className="card-text">Cantidad seleccionada: {item.cantidadProducto}</p>
+              <p className="card-text">Precio total: {item.precioProductos}</p>
               <button onClick={() => test.deleteItem(item.idProducto)} type="button" className="btn btn-danger col-4">Remover producto del carrito</button>
             </div> 
           </div>

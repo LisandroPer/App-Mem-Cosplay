@@ -5,7 +5,7 @@ export default function NavBar(){
         <>
            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Navbar</a>
+                <Link to="/cart" className="navbar-brand" aria-current="page"><CardWidget /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                       <span className="navbar-toggler-icon"></span>
                     </button>
@@ -15,7 +15,7 @@ export default function NavBar(){
                         <Link to="/category/1" className="nav-link active" aria-current="page">Disfraces</Link>
                         <Link to="/category/2" className="nav-link active" aria-current="page">Cosplays</Link>
                         <Link to="/category/3" className="nav-link active" aria-current="page">Accesorios</Link>
-                        <Link to="/cart" className="nav-link active" aria-current="page"><CardWidget /></Link>
+                        
                     </div>
                     </div>
                 </div>

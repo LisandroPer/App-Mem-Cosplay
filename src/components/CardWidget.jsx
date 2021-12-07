@@ -6,7 +6,7 @@ export default function CardWidget(){
     const test = useContext(CartContext)
     return(
         <>
-        <p>{test.calcularItemQty()}</p>
+        <span class="badge bg-secondary">{test.calcularItemQty()}</span>
         <AiOutlineShoppingCart />
         </>
     );

@@ -14,6 +14,7 @@ export default function Cart(){
         {test.cartList.length > 0 &&
         <div className="row justify-content-center align-items-center">
            <button onClick={test.removeList} type="button" className="btn btn-danger col-8">Remover todos los productos del carrito.</button>
+           <p>{test.calcularPrecioTotal()}</p> 
         </div>//RECORDAR PONER TEST.(NOMBRE DEL ARRAY O FUNCIÓN) PARA LLAMAR LOS ELEMENTOS DEL CONTEXTO GLOBAL.
         }
         {//llamo al array carList (del componente CartContext) a través del método useContext

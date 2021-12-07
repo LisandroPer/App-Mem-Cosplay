@@ -34,6 +34,10 @@ const CartContextProvider = ({children}) => {
         let result = cartList.filter(item => item.idProducto != id); //IMPORTANTE: filtra los items que sean diferentes al id y los cuarda en results (o sea que results guardará todos los elementos excepto el que eliminamos.)
         setCartList(result); //seteo el nuevo estado del CartList con todos los productos excepto el que tiene el id seleccionado.
     }
+    const calcularPrecioTotal = () =>{//CALCULA EL PRECIO TOTAL DE TODOS LOS PRODUCTOS DEL CARRITO
+        let total = cartList.map(item => item.precioProductos);
+        return total.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
+    }
      const calcularItemQty = () => {//CALCULA LOS ELEMENTOS DEL CARRITO PARA MOSTRARLO EN EL ITEM CARTWIDGET.
          let qtys = cartList.map(item => item.cantidadProducto);
          return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0); 
@@ -45,7 +49,8 @@ const CartContextProvider = ({children}) => {
            addToCart, //agrego la funcion para añadir productos al carrito.
            removeList,//agrego la función para elminar la lista completa de productos.
            deleteItem,// agrego la función para eliminar un producto en particular.
-           calcularItemQty //agrega la función que modifica el ícono numérico del carrito (cartWidget)
+           calcularItemQty, //agrega la función que modifica el ícono numérico del carrito (cartWidget)
+           calcularPrecioTotal //agrega la función que calcula el precio total del carrito.
        }}>
            {children}
        </CartContext.Provider>

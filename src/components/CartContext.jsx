@@ -34,13 +34,18 @@ const CartContextProvider = ({children}) => {
         let result = cartList.filter(item => item.idProducto != id); //IMPORTANTE: filtra los items que sean diferentes al id y los cuarda en results (o sea que results guardará todos los elementos excepto el que eliminamos.)
         setCartList(result); //seteo el nuevo estado del CartList con todos los productos excepto el que tiene el id seleccionado.
     }
+     const calcularItemQty = () => {//CALCULA LOS ELEMENTOS DEL CARRITO PARA MOSTRARLO EN EL ITEM CARTWIDGET.
+         let qtys = cartList.map(item => item.cantidadProducto);
+         return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0); 
+     }
 
    return(
        <CartContext.Provider value={{
            cartList, //agrego los datos
            addToCart, //agrego la funcion para añadir productos al carrito.
            removeList,//agrego la función para elminar la lista completa de productos.
-           deleteItem// agrego la función para eliminar un producto en particular.
+           deleteItem,// agrego la función para eliminar un producto en particular.
+           calcularItemQty //agrega la función que modifica el ícono numérico del carrito (cartWidget)
        }}>
            {children}
        </CartContext.Provider>

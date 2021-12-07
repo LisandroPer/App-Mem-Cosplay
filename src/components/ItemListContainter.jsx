@@ -24,7 +24,7 @@ export default function ItemListContainer(){
       }))
         .then(res => setProducts(res))
         .catch(err => alert("Error" + err))
-    }, [products])//pongo products aca ya que sin eso no se volvería a renderizar la página cada vez que cambio de parametros para mostrar otra clase de productos.
+    }, [idCategory])//SE PONE ID CATEGORY PARA QUE SE RENDERICE ÚNICAMENTE AL CAMBIAR DE CATEGORÍA.
 
     return(
         <div class="card-group justify-content-center">  

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function Item({imgProduct, title, id}){
+export default function Item({ imgProduct, title, id}){
     const newLocal = this;
     return(
     <div class="card-group">  
         <div className="card" style={{width: "18rem"}}>
-            <img src={imgProduct} className="card-img-top" alt="imagen" />
+            <img src={imgProduct} class="card-img-top" alt="..." />
             <div class="card-body">
                 <p class="card-text">{title}</p>
             </div>

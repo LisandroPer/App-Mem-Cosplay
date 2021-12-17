@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CardWidget from "./CardWidget";
+
 export default function NavBar(){
     return(
         <>
@@ -12,9 +13,9 @@ export default function NavBar(){
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav mx-auto">
                         <Link to="/" className="nav-link active" aria-current="page">Home</Link>
-                        <Link to="/category/1" className="nav-link active" aria-current="page">Disfraces</Link>
-                        <Link to="/category/2" className="nav-link active" aria-current="page">Cosplays</Link>
-                        <Link to="/category/3" className="nav-link active" aria-current="page">Accesorios</Link>
+                        <Link to="/category/E0OaebWRZ9jdtQs0rIv2" className="nav-link active" aria-current="page">Disfraces</Link>
+                        <Link to="/category/CdBGS12WOLlBR5jftKzY" className="nav-link active" aria-current="page">Cosplays</Link>
+                        <Link to="/category/G8Ru7S1tv2OWt2iOwM9Q" className="nav-link active" aria-current="page">Accesorios</Link>
                         
                     </div>
                     </div>

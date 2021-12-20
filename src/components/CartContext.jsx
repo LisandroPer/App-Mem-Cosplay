@@ -17,6 +17,7 @@ const CartContextProvider = ({children}) => {
               imgProducto: producto.imgProduct,
               titleProducto: producto.title,
               precioProducto: producto.price,
+              productoIncluye: producto.includes,
               cantidadProducto: qty,
               precioProductos: producto.price * qty
               }

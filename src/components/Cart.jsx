@@ -1,13 +1,44 @@
-import { Children, useContext } from "react";
+import { useContext } from "react";
 import {CartContext} from "./CartContext";
-import imagenCarritoVacio from "../assets/img/fondoComicM.jpg"
+import imagenCarritoVacio from "../assets/img/fondoComicM.jpg";
+import { collection, doc, setDoc } from "firebase/firestore";
+import db from "../utils/fireBaseConfig"
 
 
 export default function Cart(){
     const test= useContext(CartContext);//se debe indicar que contexto quiero utilizar. En este caso el cartcontext que cree.
     console.log(test);
 
-   console.dir("Prueba 2" + test.cartList)
+   const createOrder = () => { //AL HACER CLICK EN EL BOTÓN createOrder HARÁ....
+     let order = { //creo el array donde irán los objetos de la orden.,
+      buyer: { //los datos del comprador se encuentran harcodeados....
+        name: "Leo Messi",
+        email: "leomessi@futbolmail.com",
+        cel: "12345678"
+      },
+      items: test.cartList.map(item => ({ //mapeo el carList para cambiarle el nombre a los atributos de los productos antes de enviarlos a FIREBASE
+        id: item.idProducto,
+        title: item.titleProducto,
+        price: item.precioProducto,
+        cantidad: item.cantidadProducto
+
+      })),
+      total: test.calcularPrecioTotal()
+     };
+     console.log(order)
+
+     const createOrderInFirestore = async () =>{
+        // Add a new document with a generated id
+        const newOrderRef = doc(collection(db, "orders"));
+        // later...
+        await setDoc(newOrderRef, data);
+        return newOrderRef;
+       }
+
+       createOrderInFirestore()
+         .then(res => alert(res.id))
+         .catch(err => err)
+     }
 
     return(
         <>
@@ -17,6 +48,7 @@ export default function Cart(){
            <div className="row justify-content: flex-end align-items-center" style={{backgroundColor: "pink"}}>
              <h2 className="col-4">Precio total: <span class="badge bg-secondary col-4">{test.calcularPrecioTotal()}</span></h2>
              <button onClick={test.removeList} type="button" className="btn btn-danger col-4">Remover todos los productos del carrito.</button>
+             <button type="button" className="btn btn-success col-3" onClick={createOrder}>Comprar todo</button>
            </div>
         </div>//RECORDAR PONER TEST.(NOMBRE DEL ARRAY O FUNCIÓN) PARA LLAMAR LOS ELEMENTOS DEL CONTEXTO GLOBAL.
         }
@@ -27,7 +59,7 @@ export default function Cart(){
             <img src={item.imgProducto} className="card-img-top" style={{maxHeight: "20rem"}, {maxWidth: "20rem"}} alt={item.idProducto}/>
             <div className="card-body">
               <h5 className="card-title">{item.titleProducto}</h5>
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text">INCLUYE: {item.productoIncluye}</p>
               <p className="card-text">Precio unitario: {item.precioProducto}</p>
               <p className="card-text">Cantidad seleccionada: {item.cantidadProducto}</p>
               <p className="card-text">Precio total: {item.precioProductos}</p>

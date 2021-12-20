@@ -1,7 +1,5 @@
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
-//import customFetch from "../utils/customFetch";
-//import dataProducts from "../utils/dataProducts";
 import { useParams } from "react-router";
 import { firestoreFetchOne } from "../utils/fireStoreFetch";
 

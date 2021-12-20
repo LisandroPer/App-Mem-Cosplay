@@ -9,7 +9,7 @@ export default function ItemDetail({producto}){
 
     const [itemCount, setItemCount] = useState (0);
     const test = useContext(CartContext) //importo el contexto que deseo usar
-    console.log("itemdetalle", test)
+    
     const onAdd = (qty) => {
         alert("Acabas de seleccionar " + qty + " items de" + producto.title);
         setItemCount(qty);

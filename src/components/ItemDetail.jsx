@@ -24,7 +24,7 @@ export default function ItemDetail({producto}){
     return(
        <>
        
-        <div className="card mb-3">
+        <div className="card-secundaria mb-3">
             <div className="row g-0">
                 <div className="col-md-4">
                 <img src={producto.imgProduct} className="img-fluid rounded-start" style={{maxHeight: "30rem"}} alt={producto.id} />

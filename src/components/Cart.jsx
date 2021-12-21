@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import {CartContext} from "./CartContext";
 import imagenCarritoVacio from "../assets/img/fondoComicM.jpg";
-import { collection, doc, setDoc } from "firebase/firestore";
-import db from "../utils/fireBaseConfig"
+import { collection, doc, setDoc, updateDoc, increment } from "firebase/firestore";
+import db from "../utils/fireBaseConfig";
+
 
 
 export default function Cart(){
@@ -27,18 +28,29 @@ export default function Cart(){
      };
      console.log(order)
 
-     const createOrderInFirestore = async () =>{
+     
+    const createOrderInFirestore = async () =>{
         // Add a new document with a generated id
         const newOrderRef = doc(collection(db, "orders"));
         // later...
-        await setDoc(newOrderRef, data);
+        await setDoc(newOrderRef, order);
         return newOrderRef;
-       }
+      }
 
-       createOrderInFirestore()
+       createOrderInFirestore() //PROMESA CON FUNCIÓN PARA ENVIAR ORDEN A FIREBASE.
          .then(res => alert(res.id))
          .catch(err => err)
-     }
+
+     
+
+      test.cartList.forEach(async(item) => { //FUNCIÓN PARA MODIFICAR EL STOCK DE FIREBASE.
+        const itemRef = doc(db, "dataProducts", item.idProducto);
+        await updateDoc(itemRef, {
+          stock: increment(- item.cantidadProducto) //increment con el - adelante sirve para decrementar el stock de productos.
+        })
+      })
+      test.removeList();
+    }
 
     return(
         <>

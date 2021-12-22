@@ -158,4 +158,12 @@ body{
         opacity: 1;
       }
     }
+
+    .card-title-carrito{
+      color: white;
+    }
+    
+    .btn-danger{
+      margin: 4rem;
+    }
     

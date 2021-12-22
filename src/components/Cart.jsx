@@ -83,7 +83,7 @@ export default function Cart(){
          :<div class="card bg-dark text-white">
            <img src={imagenCarritoVacio} class="card-img" style={{maxHeight: "40rem"}, {maxWidth: "200rem"}} alt="Imagen de carrito vacío" />
            <div class="card-img-overlay justify-content-center align-items-center">
-              <h1 class="card-title"><b>Todavía no tienes productos en tu carrito.</b></h1> 
+              <h1 class="card-title-carrito"><b>Todavía no tienes productos en tu carrito.</b></h1> 
            </div>
            </div>
         }

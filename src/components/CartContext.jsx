@@ -44,6 +44,10 @@ const CartContextProvider = ({children}) => {
          let qtys = cartList.map(item => item.cantidadProducto);
          return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0); 
      }
+    
+    
+     
+    
 
    return(
        <CartContext.Provider value={{
@@ -53,6 +57,8 @@ const CartContextProvider = ({children}) => {
            deleteItem,// agrego la función para eliminar un producto en particular.
            calcularItemQty, //agrega la función que modifica el ícono numérico del carrito (cartWidget)
            calcularPrecioTotal //agrega la función que calcula el precio total del carrito.
+           
+           
        }}>
            {children}
        </CartContext.Provider>

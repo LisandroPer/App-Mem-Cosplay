@@ -161,9 +161,25 @@ body{
 
     .card-title-carrito{
       color: white;
+      background-color: black;
     }
     
     .btn-danger{
       margin: 4rem;
     }
+
+    .formulario-compra{
+      width: 80rem;
+      height: 40rem;
+    }
+    .form-floating{
+      margin: 4rem;
+    }
+    .form-1{
+      margin: 2rem;
+    }
+
+  .button-btnform{
+    margin: 10rem;
+  }
     

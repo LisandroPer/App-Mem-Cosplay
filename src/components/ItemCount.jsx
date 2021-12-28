@@ -31,8 +31,8 @@ function ItemCount({stock = 0, initial = 1, onAdd}){ //LE PASÉ LA FUNCIÓN POR 
         </div>
         {
             stock && count
-            ?<button type="button" className="btn-btn2 btn-success col-3" onClick={() => onAdd(count)}>Agregar al carrito</button>//ACA ESTA LA FUNCIÓN QUE SE PASÓ POR PARÁMETROS.
-            :<button type="button" className="btn-btn2 btn-light col-3" disabled>Agregar al carrito</button>
+            ?<button type="button" className="btn-btn2 btn-success col-3" onClick={() => onAdd(count)}>Add</button>//ACA ESTA LA FUNCIÓN QUE SE PASÓ POR PARÁMETROS.
+            :<button type="button" className="btn-btn2 btn-light col-3" disabled>Add</button>
         }
         </div>
        </>

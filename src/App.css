@@ -9,6 +9,9 @@
     width: 30rem;
     height: 30rem;
 }
+.detail{
+  color: red;
+}
 .card-primaria p{
     font-size: 1rem;
     color: violet;

@@ -81,9 +81,9 @@ export default function Cart(){
         <div className="row justify-content-center align-items-center">
            
            <div className="row justify-content: flex-end align-items-center" style={{backgroundColor: "pink"}}>
-             <h2 className="col-3">Precio total: <span class="badge bg-secondary col-4">{test.calcularPrecioTotal()}</span></h2>
-             <button onClick={test.removeList} type="button" className="btn btn-danger col-4">Vaciar carrito.</button>
-             <button type="button" className="btn btn-success col-3" onClick={mostrarFormulario}>Comprar todo</button>
+             <h2 className="col-6 col-lg-12"> <b>Precio total: {test.calcularPrecioTotal()} </b></h2>
+             <button onClick={test.removeList} type="button" className="btn btn-danger col-3 col-lg-4">Remove all</button>
+             <button type="button" className="btn btn-success col-3 col-lg-4" onClick={mostrarFormulario}>Buy all products</button>
            </div>
         </div>//RECORDAR PONER TEST.(NOMBRE DEL ARRAY O FUNCIÓN) PARA LLAMAR LOS ELEMENTOS DEL CONTEXTO GLOBAL.
         }
@@ -99,11 +99,11 @@ export default function Cart(){
             <img src={item.imgProducto} className="card-img-top" style={{maxHeight: "20rem"}, {maxWidth: "20rem"}} alt={item.idProducto}/>
             <div className="card-body">
               <h5 className="card-title">{item.titleProducto}</h5>
-              <p className="card-text">INCLUYE: {item.productoIncluye}</p>
-              <p className="card-text">Precio unitario: {item.precioProducto}</p>
-              <p className="card-text">Cantidad seleccionada: {item.cantidadProducto}</p>
-              <p className="card-text">Precio total: {item.precioProductos}</p>
-              <button onClick={() => test.deleteItem(item.idProducto)} type="button" className="btn btn-danger col-4">Remover producto del carrito</button>
+              <p className="card-text"> <b className="detail">Incluye:</b> {item.productoIncluye}</p>
+              <p className="card-text"> <b className="detail">Precio unitario: </b>{item.precioProducto}</p>
+              <p className="card-text"> <b className="detail">Cantidad seleccionada: </b> {item.cantidadProducto}</p>
+              <p className="card-text"> <b className="detail">Precio total: </b>{item.precioProductos}</p>
+              <button onClick={() => test.deleteItem(item.idProducto)} type="button" className="btn btn-danger col-4">Remove</button>
             </div> 
           </div>
             )

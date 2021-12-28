@@ -32,9 +32,9 @@ export default function ItemDetail({producto}){
                 <div className="col-md-8">
                 <div className="card-body">
                     <h5 className="card-title">{producto.title}</h5>
-                    <p className="card-text">Incluye: {producto.includes}</p>
-                    <p className="card-text">Precio: {producto.price}</p>
-                    <p className="card-text">Cantidad en stock: {producto.stock}</p>
+                    <p className="card-text"> <b className="detail">Incluye:</b> {producto.includes}</p>
+                    <p className="card-text"> <b className="detail">Precio:</b> {producto.price}</p>
+                    <p className="card-text"> <b className="detail">Cantidad en stock:</b> {producto.stock}</p>
                 </div>
                 </div>
                 <div className= "row justify-content-center align-items-center">
